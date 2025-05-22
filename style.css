@@ -1,0 +1,993 @@
+/* --- Global Resets and Base Styles. Inspiration from Google Gemini with the "*" and "*before and *after" "Resets" - for consistency - my understanding is limited--- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px; /* Base font size */
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px; 
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #FBFBFB; 
+    color: #020303; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: #AC050C; 
+    transition: color 0.3s ease, background-color 0.3s ease; 
+}
+
+a:hover,
+a:focus {
+    color: #860409; 
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- Utility Classes --- */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.section-title {
+    font-size: 2.5rem; 
+    font-weight: 700;
+    color: #020303; 
+    text-align: center;
+    margin-bottom: 1rem; 
+}
+
+.section-subtitle {
+    font-size: 1.125rem; 
+    color: #333; 
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem; 
+}
+
+/* --- Buttons (BEM: button, button--primary, button--secondary) --- */
+.button {
+    display: inline-block;
+    padding: 0.75em 1.5em; 
+    font-size: 1rem; 
+    font-weight: 500;
+    border-radius: 9999px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-align: center;
+    border: 2px solid transparent; 
+}
+
+.button--primary {
+    background-color: #AC050C; 
+    color: #FBFBFB; 
+}
+
+.button--primary:hover,
+.button--primary:focus {
+    background-color: #860409; 
+    color: #FBFBFB;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button--secondary {
+    background-color: #EBEBE6; 
+    color: #020303; 
+}
+
+.button--secondary:hover,
+.button--secondary:focus {
+    background-color: #dcdcd7; 
+    color: #020303;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+/* --- Header (BEM: header, header__container, header__logo, header__nav, header__menu-toggle) --- */
+.header {
+    background-color: #FBFBFB; 
+    padding: 0.75rem 0; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    display: flex; 
+    align-items: center; 
+    gap: 0.75rem; 
+    text-decoration: none; 
+}
+
+.header__logo-img {
+    height: 50px; 
+    width: auto; 
+    display: block; 
+}
+
+.header__logo-text {
+    font-size: 1.4rem; 
+    color: #333; 
+    font-weight: 700; 
+    white-space: nowrap; 
+}
+
+
+/* --- Navigation (BEM: nav, nav__list, nav__item, nav__link) --- */
+.nav__list {
+    display: flex;
+    align-items: center;
+}
+
+.nav__item {
+    margin-left: 0.5rem; 
+}
+.nav__item:first-child {
+    margin-left: 0;
+}
+
+
+.nav__link {
+    font-size: 1rem; 
+    font-weight: 500;
+    color: #333; 
+    padding: 0.5em 1em; 
+    border-radius: 9999px; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block; 
+}
+
+
+.nav__link:hover,
+.nav__link:focus {
+    background-color: #EBEBE6; 
+    color: #333; 
+}
+       
+
+/* --- Mobile Menu Toggle --- Written by Google Gemini (Promt #1) */
+.header__menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px; 
+    z-index: 1001; 
+    width: 41px;  
+    height: 35px; 
+    position: relative; 
+}
+
+.header__menu-icon {
+    display: block;
+    width: 25px; 
+    height: 3px;  
+    background-color: #020303; 
+    border-radius: 3px;
+}
+
+
+/* --- Main Content (Shared by Homepage and Detail Pages) --- */
+.main-content, 
+.project-detail-page { 
+    padding-top: 90px; 
+    padding-left: 1rem; 
+    padding-right: 1rem; 
+    flex-grow: 1; 
+}
+
+/* --- Hero Section (Homepage Specific) --- */
+.hero {
+    background-color: #EBEBE6; 
+    padding: 1rem 0 4rem; 
+    min-height: calc(100vh - 80px); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 1.7rem; 
+    margin-bottom: 2rem; 
+}
+
+.hero__container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    width: 100%; 
+    padding-top: 1.8rem; 
+}
+
+.hero__image-container {
+    width: 100%;
+    max-width: 900px; 
+    margin-bottom: 2rem; 
+}
+
+.hero__image {
+    width: 100%;
+    height: auto;
+    max-height: 500px; 
+    object-fit: contain; 
+}
+
+.hero__content {
+    max-width: 750px;
+}
+
+.hero__title {
+    font-size: 2.1rem; 
+    font-weight: 700;
+    line-height: 1.2;
+    color: #020303;
+    margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+/* --- Services Section (Homepage Specific) --- */
+.services {
+    padding: 4rem 0;
+}
+
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-item {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1.7rem; 
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.service-item__icon {
+    width: 2.5rem;  
+    height: 2.5rem; 
+    color: #AC050C; 
+    margin-bottom: 1rem;
+    display: inline-block; 
+}
+.service-item__icon svg, 
+.service-item__icon img { 
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+.service-item__title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #020303;
+    margin-bottom: 0.5rem;
+}
+
+.service-item__description {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- Portfolio Section (Homepage Specific) --- */
+.portfolio {
+    padding: 4rem 0;
+    background-color: #EBEBE6; 
+    border-radius: 1.7rem; 
+    margin-bottom: 2rem; 
+}
+
+.portfolio__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem; 
+}
+
+.portfolio-item {
+    background-color: #FBFBFB; 
+    border-radius: 1.7rem; 
+    overflow: hidden; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item__image-container {
+    width: 100%;
+    height: 220px; 
+    overflow: hidden; 
+    padding: 1rem; 
+    background-color: #FBFBFB; 
+}
+
+.portfolio-item__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block; 
+    border-radius: 1.2rem; 
+}
+
+.portfolio-item__content {
+    padding: 1.5rem; 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-item__title {
+    font-size: 1.2rem; 
+    font-weight: 500;
+    color: #020303; 
+    margin-bottom: 0.5rem; 
+}
+
+.portfolio-item__description {
+    font-size: 0.9rem; 
+    color: #555;
+    margin-bottom: 1rem; 
+    flex-grow: 1;
+}
+
+.portfolio-item__link {
+    margin-top: auto; 
+    align-self: flex-start;
+}
+
+
+/* --- Contact Section (Homepage Specific) --- */
+.contact {
+    padding: 4rem 0;
+}
+
+.contact__content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 1.7rem; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.contact__info {
+    flex: 1;
+    min-width: 280px;
+}
+
+.contact__info-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: #020303;
+}
+
+.contact__info p {
+    margin-bottom: 0.75rem; 
+    font-size: 1rem;
+    color: #333;
+    display: flex; 
+    align-items: center; 
+}
+
+.contact__info p .contact-icon { 
+    margin-right: 0.75rem;
+    color: #AC050C;
+    width: 20px; 
+    height: 20px; 
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; 
+}
+.contact__info p .contact-icon svg,
+.contact__info p .contact-icon img { 
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+}
+
+
+.contact__link {
+    color: #333;
+}
+.contact__link:hover,
+.contact__link:focus {
+    color: #AC050C; 
+    text-decoration: underline;
+}
+
+.contact__humor-note {
+    font-size: 0.9rem;
+    color: #555;
+    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+.contact__form {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group__label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.form-group__input,
+.form-group__textarea {
+    width: 100%;
+    padding: 0.8em 1em;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #ccc;
+    background-color: #FBFBFB;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-group__input {
+    border-radius: 9999px; 
+}
+.form-group__textarea {
+    border-radius: 1rem; 
+    resize: vertical;
+    min-height: 120px;
+}
+
+
+.form-group__input:focus,
+.form-group__textarea:focus {
+    outline: none;
+    border-color: #AC050C;
+    box-shadow: 0 0 0 3px rgba(172, 5, 12, 0.2);
+}
+
+
+.contact__submit {
+    width: 100%;
+}
+
+/* --- Project Detail Page Specific Styles (Including About Me page) --- */
+.project-detail__back-button-container {
+    margin-bottom: 2.5rem; 
+    margin-top: 1rem; 
+}
+
+.project-detail__row {
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center; 
+    margin-bottom: 4rem; 
+    gap: 2rem; 
+}
+
+.project-detail__text-content,
+.project-detail__image-container,
+.project-detail__skills-container { 
+    flex: 1; 
+    min-width: 300px; 
+}
+
+.project-detail__row--image-right .project-detail__text-content {
+    order: 1;
+}
+.project-detail__row--image-right .project-detail__image-container {
+    order: 2;
+}
+
+.project-detail__row--image-left .project-detail__image-container {
+    order: 1;
+}
+.project-detail__row--image-left .project-detail__text-content {
+    order: 2;
+}
+
+.project-detail__row--skills-left .project-detail__skills-container { 
+    order: 1;
+}
+.project-detail__row--skills-left .project-detail__image-container { 
+    order: 2;
+}
+
+.project-detail__image {
+    width: 100%;
+    border-radius: 1.2rem; 
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12); 
+    object-fit: cover; 
+    height: 350px; 
+    transition: transform 0.3s ease;
+}
+.project-detail__image:hover {
+    transform: translateY(-5px);
+}
+ .project-detail__image--main { 
+    height: 400px; 
+    border-radius: 1.2rem; 
+}
+
+.project-detail__main-title {
+    font-size: 2.8rem; 
+    font-weight: 700;
+    color: #020303;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.project-detail__client-name { 
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 1.5rem;
+    display: block; 
+}
+
+.project-detail__section-title { 
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #AC050C; 
+    margin-bottom: 1rem;
+    margin-top: 0; 
+}
+
+.project-detail__description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+}
+.project-detail__description p {
+    margin-bottom: 1em;
+}
+.project-detail__description p:last-child {
+    margin-bottom: 0;
+}
+
+.project-detail__skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem; 
+    margin-top: 0.5rem;
+}
+
+.project-detail__skill-item {
+    background-color: #EBEBE6; 
+    color: #333;
+    padding: 0.5em 1em;
+    border-radius: 9999px; 
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex; 
+    align-items: center;
+    gap: 0.5rem; 
+    transition: transform 0.3s ease;
+    cursor: default; 
+}
+.project-detail__skill-item:hover {
+    transform: translateY(-3px); 
+}
+.project-detail__skill-item-icon { 
+    width: 18px; 
+    height: 18px;
+    stroke-width: 2; 
+    stroke: currentColor; 
+    fill: none; 
+}
+.project-detail__skill-item-icon img { 
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.project-detail__skill-item-icon.placeholder-icon--general { 
+     fill: #777; 
+     stroke: none; 
+}
+
+/* Video Embed Styles Inspiration from Google Gemini*/
+.video-responsive-wrapper {
+    overflow: hidden;
+    padding-bottom: 48.55%; /* 16:9 Aspect Ratio */
+    position: relative;
+    height: 0;
+    margin-top: 1.5rem; 
+    margin-bottom: 1.5rem; 
+    border-radius: 1.2rem; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    width: 100%; /* Default to full width of its container */
+    max-width: 640px; /* NEW: Constrain max width */
+    margin-left: auto;   /* NEW: Center if max-width is applied */
+    margin-right: auto;  /* NEW: Center if max-width is applied */
+}
+
+.video-responsive-wrapper iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 1.2rem; 
+}
+
+
+
+/* --- Footer Block (BEM: footer) --- */
+.footer { 
+    background-color: #EBEBE6; 
+    color: #333; 
+    padding: 2.5rem 0; 
+    text-align: center;
+    border-top-left-radius: 1.7rem; 
+    border-top-right-radius: 1.7rem; 
+    border-bottom-left-radius: 0; 
+    border-bottom-right-radius: 0; 
+    margin-top: 4rem; 
+}
+
+.footer__container { 
+    /* Uses global .container styles */
+}
+
+.footer__copyright { 
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #333; 
+}
+.footer__copyright span, .footer__copyright p { 
+     color: #333;
+}
+
+
+
+
+/* --- Responsive Design (Shared by Homepage and Detail Pages) --- */
+
+@media (max-width: 850px) { /* Tablet view. Standard is:768*/
+    html {
+        scroll-padding-top: 90px; 
+    }
+    .main-content, .project-detail-page { 
+        padding-top: 90px; 
+        padding-left: 0.75rem; 
+        padding-right: 0.75rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .header__logo-text {
+        font-size: 1.2rem; 
+    }
+
+    .header__menu-toggle {
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-around; 
+        align-items: center; 
+    }
+    .header__menu-toggle .header__menu-icon { 
+        margin: 0; 
+    }
+
+
+    .header__nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #FBFBFB;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: stretch;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .nav--active {
+        max-height: 500px;
+        padding-bottom: 1rem;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav__item {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .nav__link {
+        display: block;
+        padding: 1rem; 
+        text-align: center;
+        width: 100%;
+        border-radius: 9999px; 
+    }
+  
+
+    /* Hamburger to X animation - Instant Written by Google Gemini (Promt #1)*/
+    .header__menu-toggle--active .header__menu-icon {
+        position: absolute; 
+        left: 50%;
+        top: 50%;
+    }
+    .header__menu-toggle--active .header__menu-icon:nth-child(1) {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+    .header__menu-toggle--active .header__menu-icon:nth-child(2) {
+        transform: translate(-50%, -50%) scaleX(0); 
+        opacity: 0;
+    }
+    .header__menu-toggle--active .header__menu-icon:nth-child(3) {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .hero, .portfolio { 
+        border-radius: 1.2rem; 
+    }
+    .service-item, .portfolio-item, .contact__content-wrapper, .about-me__content-wrapper { 
+        border-radius: 1.2rem; 
+    }
+    .footer { 
+        border-top-left-radius: 1.2rem;
+        border-top-right-radius: 1.2rem;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-top: 2.5rem;
+        padding-left: 0.75rem; 
+        padding-right: 0.75rem;
+    }
+    .portfolio-item__image {
+        border-radius: 1rem; 
+    }
+    .form-group__input, .button {
+         border-radius: 9999px; 
+    }
+    .form-group__textarea {
+        border-radius: 0.8rem; 
+    }
+
+
+    .hero {
+        padding: 0.75rem 0 3rem; 
+        margin-bottom: 1.5rem;
+    }
+    .hero__container {
+        padding-top: 0.25rem; 
+    }
+    .hero__title {
+        font-size: 1.65rem; 
+    }
+    .hero__subtitle {
+        font-size: 1.1rem;
+    }
+    .hero__image-container {
+         margin-bottom: 1.5rem; 
+         max-width: 100%; 
+    }
+    .hero__image {
+        max-height: 400px; 
+    }
+    .portfolio {
+        margin-bottom: 1.5rem;
+    }
+
+    .contact__content-wrapper {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    /* Project Detail Page & About Me Page Specific Tablet Adjustments */
+    .project-detail__main-title, .about-me__title {
+        font-size: 2.2rem;
+    }
+    .project-detail__section-title, .about-me__section-heading {
+        font-size: 1.5rem;
+    }
+    .project-detail__row, .about-me__intro {
+        flex-direction: column; 
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+    .project-detail__row--image-right .project-detail__text-content,
+    .project-detail__row--image-left .project-detail__text-content,
+    .project-detail__row--skills-left .project-detail__skills-container,
+    .about-me__intro .about-me__intro-text { 
+        order: 1; 
+        text-align: center; 
+    }
+    .project-detail__row--image-right .project-detail__image-container,
+    .project-detail__row--image-left .project-detail__image-container,
+    .project-detail__row--skills-left .project-detail__image-container,
+    .about-me__intro .about-me__image-container {
+        order: 2; 
+        margin-bottom: 1.5rem; 
+    }
+     .project-detail__skills-list {
+        justify-content: center; 
+    }
+    .project-detail__image, .project-detail__image--main, .about-me__image {
+        height: 300px; 
+        border-radius: 0.8rem; 
+    }
+    .about-me__image-container {
+        max-width: 280px;
+    }
+
+}
+
+@media (max-width: 480px) { /* Mobile view */
+    html {
+        scroll-padding-top: 80px; 
+    }
+    .main-content, .project-detail-page { 
+        padding-top: 80px; 
+        padding-left: 0.5rem; 
+        padding-right: 0.5rem;
+    }
+    .header__logo-img {
+        height: 40px;
+    }
+    .header__logo-text { 
+        font-size: 1rem; 
+        font-weight: 700; 
+        gap: 0.5rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .hero, .portfolio, .service-item, .portfolio-item, .contact__content-wrapper, .about-me__content-wrapper {
+        border-radius: 1rem; 
+    }
+     .footer { 
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-top: 2rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .portfolio-item__image {
+        border-radius: 0.6rem; 
+    }
+     .form-group__input, .button {
+         border-radius: 9999px; 
+    }
+    .form-group__textarea {
+        border-radius: 0.6rem; 
+    }
+
+    .hero {
+        padding: 0.5rem 0 2.5rem; 
+        margin-bottom: 1rem;
+    }
+    .hero__container {
+        padding-top: 0.25rem; 
+    }
+    .hero__title {
+        font-size: 2.0rem; 
+    }
+    .hero__subtitle {
+        font-size: 1rem;
+    }
+    .button {
+        padding: 0.65em 1.2em;
+        font-size: 0.95rem;
+    }
+    .portfolio__grid {
+        grid-template-columns: 1fr;
+    }
+     .portfolio {
+        margin-bottom: 1rem;
+    }
+    .hero__image-container {
+         margin-bottom: 1rem;
+    }
+    .hero__image {
+        max-height: 250px; 
+    }
+
+    /* Project Detail Page & About Me Page Specific Mobile Adjustments */
+    .project-detail__main-title, .about-me__title {
+        font-size: 1.8rem;
+    }
+    .project-detail__section-title, .about-me__section-heading {
+        font-size: 1.3rem;
+    }
+    .project-detail__description, .about-me__intro-text p, .about-me__details p {
+        font-size: 0.95rem;
+    }
+    .project-detail__skill-item {
+        font-size: 0.85rem;
+        padding: 0.4em 0.8em; 
+    }
+    .project-detail__skill-item-icon {
+        width: 14px;
+        height: 14px;
+    }
+    .project-detail__row, .about-me__intro {
+        margin-bottom: 2rem;
+    }
+    .project-detail__image, .project-detail__image--main, .about-me__image {
+        height: 250px; 
+        border-radius: 1rem; 
+    }
+    .about-me__content-wrapper {
+        padding: 1.5rem;
+    }
+}

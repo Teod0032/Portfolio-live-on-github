@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept Development Project | Designed By Ravn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo"> 
+                <img src="images/logoalt.png" alt="My Brand Logo" class="header__logo-img">
+                <span class="header__logo-text">Designed By Ravn</span>
+            </a>
+            <nav class="nav header__nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html#hero" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="index.html#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="index.html#portfolio" class="nav__link">Portfolio</a></li>
+                    <li class="nav__item"><a href="aboutme.html" class="nav__link">About Me</a></li>
+                    <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            <!--Menu toggle button written by Google Gemini (Promt #1)--->
+            <button class="header__menu-toggle" id="menu-toggle" aria-label="Open navigation menu">
+                <span class="header__menu-icon"></span>
+                <span class="header__menu-icon"></span>
+                <span class="header__menu-icon"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="project-detail-page">
+        <div class="container">
+            <div class="project-detail__back-button-container">
+                <a href="index.html#portfolio" class="button button--secondary project-detail__back-button">&larr; Back to Portfolio</a>
+            </div>
+
+            <section class="project-detail__row project-detail__row--image-right">
+                <div class="project-detail__text-content">
+                    <h1 class="project-detail__main-title">Concept Development</h1>
+                    <span class="project-detail__client-name">Client: FutureTech Innovations (Example)</span>
+                    <p class="project-detail__description">
+                        This project involved the conceptualization and initial development of a groundbreaking interactive digital experience. The core objective was to explore innovative ways to engage users and present complex information in an intuitive and exciting manner.
+                    </p>
+                </div>
+                <div class="project-detail__image-container">
+                    <img src="images/conceptdevelopment1.jpg" alt="Main visual for Concept Development project" class="project-detail__image project-detail__image--main">
+                </div>
+            </section>
+
+            <section class="project-detail__row project-detail__row--image-left">
+                <div class="project-detail__image-container">
+                    <img src="images/conceptdevelopment2.webp" alt="Early prototype or sketch for Concept Development" class="project-detail__image">
+                </div>
+                <div class="project-detail__text-content">
+                    <h2 class="project-detail__section-title">The Challenge & Approach</h2>
+                    <p class="project-detail__description">
+                        The main challenge was to move beyond traditional digital interfaces and create a truly immersive concept. This required not only creative ideation but also a deep understanding of user psychology and interaction design principles.
+                    </p>
+                     <p class="project-detail__description">
+                        Our approach was highly iterative, starting with persona development and market research to identify user needs and opportunities. We then moved into physical prototyping to test core interaction mechanics, followed by digital mockups in Figma. JavaScript was used for developing interactive prototypes, and user testing sessions provided crucial feedback for refinement.
+                    </p>
+                </div>
+            </section>
+
+            <section class="project-detail__row project-detail__row--skills-left"> 
+                 <div class="project-detail__skills-container"> 
+                    <h2 class="project-detail__section-title">Skills & Tools Utilized</h2>
+                    <ul class="project-detail__skills-list">
+                        <li class="project-detail__skill-item">
+                            <img src="images/physicalprototyping.svg" alt="physical Prototyping" class="project-detail__skill-item-icon">
+                            <span>Physical Prototyping</span>
+                        </li>
+                        <li class="project-detail__skill-item">
+                            <img src="images/usertesting.svg" alt="persona development" class="project-detail__skill-item-icon">
+                            <span>Persona Development</span>
+                        </li>
+                         <li class="project-detail__skill-item">
+                            <img src="images/interactivedesignpsychology.svg" alt="Interactive Design Psychology" class="project-detail__skill-item-icon">
+                            <span>Interactive Design Psychology</span>
+                        </li>
+                        <li class="project-detail__skill-item">
+                            <img src="images/pythonlogo.svg" alt="python" class="project-detail__skill-item-icon">
+                            <span>Python Coding</span>
+                        </li>
+                        <li class="project-detail__skill-item">
+                            <img src="images/photoshoplogo.svg" alt="Adobe Photoshop" class="project-detail__skill-item-icon">
+                            <span>Adobe Photoshop</span>
+                        </li>
+                        <li class="project-detail__skill-item">
+                            <img src="images/premiereprologo.svg" alt="Adobe Premiere Pro" class="project-detail__skill-item-icon">
+                            <span>Adobe Premiere Pro</span>
+                        </li>
+                    </ul>
+                    <h2 class="project-detail__section-title" style="margin-top: 2rem;">Project Outcome</h2>
+                     <p class="project-detail__description">
+                        The final concept was successfully prototyped and received overwhelmingly positive feedback during user testing sessions. It demonstrated high user engagement and effectively conveyed the intended message, showcasing the power of interactive design.
+                    </p>
+                </div>
+                <div class="project-detail__image-container"> 
+                    <img src="images/conceptdevelopment.png" alt="User testing or interactive prototype screenshot" class="project-detail__image">
+                </div>
+            </section>
+        </div> 
+    
+        <footer class="footer">
+            <div class="container footer__container">
+                <p class="footer__copyright"></p> 2025 Designed By Ravn. Building brands with a smile.</p>
+                    </div>
+            </div>
+        </footer>
+    </main> 
+
+
+    <script>
+        // --- Mobile Menu Toggle Written By Google Gemini (promt #1) ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const nav = document.querySelector('.header__nav'); 
+
+        if(menuToggle && nav) { 
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('nav--active');
+                menuToggle.classList.toggle('header__menu-toggle--active');
+                const isExpanded = nav.classList.contains('nav--active');
+                menuToggle.setAttribute('aria-expanded', isExpanded);
+            });
+
+            const navLinks = nav.querySelectorAll('.nav__link'); 
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (link.pathname === window.location.pathname || link.pathname.endsWith('index.html')) {
+                        if (nav.classList.contains('nav--active')) {
+                            nav.classList.remove('nav--active');
+                            menuToggle.classList.remove('header__menu-toggle--active');
+                            menuToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    } else {
+                        if (nav.classList.contains('nav--active')) {
+                            nav.classList.remove('nav--active');
+                            menuToggle.classList.remove('header__menu-toggle--active');
+                            menuToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+        }
+
+        
+    </script>
+
+</body>
+</html>
