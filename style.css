@@ -925,10 +925,10 @@ ul {
         padding-right: 0.5rem;
     }
     .contact__form {
-        padding-left: 1rem;  /* Adds space on the left inside the form */
-        padding-right: 1rem; /* Adds space on the right inside the form */
-        /* You can adjust '1rem' to a smaller or larger value 
-           (e.g., 0.75rem, 1.5rem) to fine-tune the width */
+        padding-left: 1rem;  
+        padding-right: 1rem;
+        max-width: 90%;
+         
     }
     .portfolio-item__image {
         border-radius: 0.6rem; 
