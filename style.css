@@ -1,7 +1,12 @@
-/* --- Global Resets and Base Styles. Inspiration from Google Gemini with the "*" and "*before and *after" "Resets" - for consistency - my understanding is limited--- */
-*,
-*::before,
-*::after {
+/* --- Global Resets and Base Styles.
+Inspiration from Google Gemini with the "*" for consistency - my understanding is limited- 
+*: Selects every single element on the page.
+box-sizing: border-box;:By default, an element's width and height apply only to its content box.
+border-box changes this so that the width and height properties include the content, padding, and border, but not the margin.
+This makes it much easier to size elements.
+margin: 0;: Removes all default margins from every element. Browsers have default margins for elements like headings, paragraphs, etc., and this rule resets them.
+padding: 0;: Removes all default padding from every element. Similar to margin, this resets any browser-default padding.--*/
+*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -31,16 +36,13 @@ img {
     display: block;
 }
 
+/*all link text has no decoration*/
 a {
-    text-decoration: none;
-    color: #AC050C; 
-    transition: color 0.3s ease, background-color 0.3s ease; 
+    text-decoration: none; 
+     
 }
 
-a:hover,
-a:focus {
-    color: #860409; 
-}
+
 
 ul {
     list-style: none;
