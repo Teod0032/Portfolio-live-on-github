@@ -222,7 +222,7 @@ ul {
 .hero {
     background-color: #EBEBE6; 
     padding: 1rem 0 4rem; 
-    min-height: calc(100vh - 80px); 
+    min-height: calc(100vh - 80px);  /*this makes the hero always be the hight of the viewport minus 80px*/
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
@@ -304,7 +304,7 @@ ul {
     margin-bottom: 1rem;
     display: inline-block; 
 }
-.service-item__icon svg, 
+
 .service-item__icon img { 
     width: 100%;
     height: 100%;
@@ -342,7 +342,7 @@ ul {
 .portfolio-item {
     background-color: #FBFBFB; 
     border-radius: 1.7rem; 
-    overflow: hidden; 
+    overflow: hidden; /*makes sure the image doesnt fill up more space than what the padding around it says, and that it keeps rounded corners */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
     display: flex;
     flex-direction: column;
@@ -357,7 +357,6 @@ ul {
 .portfolio-item__image-container {
     width: 100%;
     height: 220px; 
-    overflow: hidden; 
     padding: 1rem; 
     background-color: #FBFBFB; 
 }
@@ -692,9 +691,7 @@ ul {
     margin-top: 4rem; 
 }
 
-.footer__container { 
-    /* Uses global .container styles */
-}
+
 
 .footer__copyright { 
     font-size: 0.9rem;
@@ -929,7 +926,7 @@ ul {
         align-items: center;
          
     }
-    
+
      .form-group__input, .button {
          border-radius: 9999px;
          width: 90%; 
@@ -958,6 +955,10 @@ ul {
     .button {
         padding: 0.65em 1.2em;
         font-size: 0.95rem;
+        align-self: center;
+    }
+    .project-detail__back-button-container {
+        text-align: center;
     }
     .portfolio__grid {
         grid-template-columns: 1fr;
